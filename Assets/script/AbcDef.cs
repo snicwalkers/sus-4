@@ -5,8 +5,9 @@ using UnityEngine;
 public class AbcDef : MonoBehaviour
 {
     int healthPoint = 100;
-    void Something()
+    void Something(int dmg)
     {
+        healthPoint -= dmg;
         if (healthPoint < 1)
         {
             print("hmmmm");
@@ -20,6 +21,9 @@ public class AbcDef : MonoBehaviour
             print("dads");
         }
     }
-    
+    private void Update()
+    {
+        Something(10);
+    }
 
 }
