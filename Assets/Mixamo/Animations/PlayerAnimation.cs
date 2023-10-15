@@ -12,13 +12,10 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-        {
-            anim.SetBool("canWalk", true);
-        }
-        else
-        {
-            anim.SetBool("canWalk", false);
-        }
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        anim.SetFloat("velX", x, 0.1f, Time.deltaTime);
+        anim.SetFloat("velY", z, 0.1f, Time.deltaTime);
     }
 }
